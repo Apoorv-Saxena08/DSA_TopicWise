@@ -1,0 +1,15 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+int main(){
+	int n; cin>>n; int a[100];
+	for(int i=0;i<n;i++) cin>>a[i];
+	int target; cin>>target;
+	unordered_map<int,int> mp;
+	for(int i=0;i<n;i++){
+    	int need = target - a[i];
+    	if(mp.find(need)!=mp.end()){ cout<<mp[need]<<" "<<i; return 0; }
+    	mp[a[i]] = i;
+	}
+	cout<<"No"; return 0;
+}
